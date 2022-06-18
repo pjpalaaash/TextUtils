@@ -4,13 +4,13 @@ import Navbar from './components/Navbar.js'
 import Text from './components/Text.js'
 import React,{useState} from 'react';
 import Alerts from './components/Alerts';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Routes
-} from "react-router-dom";
-import About from './components/About';
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   Link,
+//   Routes
+// } from "react-router-dom";
+// import About from './components/About';
 
 
 function App() {
@@ -44,16 +44,16 @@ function App() {
 
   return (
     <>
-     <Router>
+     
       <Navbar title="Text Changer" mode={mode} toggleStyle={toggleStyle} />
       <Alerts alert={alert} />
       <div className="container my-3">
-        <Routes>
-            <Route path="/" element={<Text  mode={mode} showAlert={showAlert} />} /> 
-            <Route path="/about" element={<About mode={mode} />} />                  
-        </Routes>
+        
+          <Text  mode={mode} showAlert={showAlert} />
+            {/* <Route path="/about" element={<About mode={mode} />} />                   */}
+        
       </div>
-     </Router>
+     
     </>
    
   )

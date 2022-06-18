@@ -40,9 +40,14 @@ export default function Text(props) {
             }
         }
         let no = num.join(" ");
-
-        numbers(no);
-        props.showAlert("Numbers Extracted","success")
+        if(no.length>0){
+            numbers(no);
+            props.showAlert("Numbers Extracted","success")
+        }
+        else{
+            numbers("There are no Numbers in the text")
+            props.showAlert("Text contains no numbers","danger")
+        }
     }
 
     const copyText= ()=>{
@@ -68,10 +73,10 @@ export default function Text(props) {
                 <div className="mb-3 my-2">         
                 <textarea className="form-control" style={{backgroundColor: props.mode==="dark"?"#091e14":"white",color:props.mode==="dark"?"white":"black",border: `2px solid ${props.mode==="dark"?"white":"black"}`}} value={text} onChange={changeFunc} id="textBox" rows="10"></textarea>
                 </div>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={upperFunc}>Convert Upper Case</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={noExract}>Extract Numbers</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={copyText}>Copy Text</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={clearText}>Clear Text</button>
+                <button disabled={text.length===0} className={`${props.mode==="dark"?"main-btn-drk":"main-btn"} svg btn btn-light mx-1 my-1`}  onClick={upperFunc}>Convert Upper Case</button>
+                <button disabled={text.length===0} className={`${props.mode==="dark"?"main-btn-drk":"main-btn"} svg btn btn-light mx-1 my-1`}  onClick={noExract}>Extract Numbers</button>
+                <button disabled={text.length===0} className={`${props.mode==="dark"?"main-btn-drk":"main-btn"} svg btn btn-light mx-1 my-1`}  onClick={copyText}>Copy Text</button>
+                <button disabled={text.length===0} className={`${props.mode==="dark"?"main-btn-drk":"main-btn"} svg btn btn-light mx-1 my-1`}  onClick={clearText}>Clear Text</button>
 
 
         </div>
